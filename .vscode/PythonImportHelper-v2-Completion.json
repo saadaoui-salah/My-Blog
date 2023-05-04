@@ -740,7 +740,7 @@
         "kind": 6,
         "importPath": "user.models",
         "description": "user.models",
-        "peekOfCode": "class Author(AbstractUser):\n    username = None\n    email    = models.EmailField(unique=True)\n    first_name = models.CharField(max_length=50)\n    last_name = models.CharField(max_length=50)\n    USERNAME_FIELD = 'email'\n    def __str__(self):\n        return self.email",
+        "peekOfCode": "class Author(AbstractUser):\n    username = models.CharField(max_length=30)\n    email    = models.EmailField(unique=True)\n    first_name = models.CharField(max_length=50)\n    last_name = models.CharField(max_length=50)\n    USERNAME_FIELD = 'email'\n    def __str__(self):\n        return self.email",
         "detail": "user.models",
         "documentation": {}
     },

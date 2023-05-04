@@ -18,7 +18,6 @@ class CustomUserCreationForm(forms.Form):
         self.password2 = self.cleaned_data.get('password2')
         self.password = self.cleaned_data.get('password')
         self.username = self.email.split("@")[0]
-        print(self.cleaned_data)
         if self.email and User.objects.filter(email=self.email).exists():
             raise forms.ValidationError('This email address is already in use.')
         if not self.password2:
