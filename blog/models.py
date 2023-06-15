@@ -1,9 +1,15 @@
 from django.db import models
-from user.models import Author
+from django.contrib.auth import get_user_model
 
+User = get_user_model()
 
-class Blog(models.Model):
-    author = models.ForeignKey(Author, on_delete=models.CASCADE)
-    title  = models.CharField(max_length=100)
-    body   = models.TextField()
-    created_at = models.DateTimeField(auto_now_add=True)    
+class Post(models.Model):
+    title = models.CharField(max_length=255)
+    content = models.TextField()
+    image = models.FileField(upload_to='images/')
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.title
